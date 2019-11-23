@@ -1,44 +1,42 @@
-# 삼성전자 연간 주요재무정보 
+# 한류 AI센터 주가 알아보기
+
+# 날짜를 클랜징 해주는 함수
+library(lubridate) 
+# 크롤링에 필요한 패키지
+library(httr)
 library(rvest)
 
-url <- 'https://navercomp.wisereport.co.kr/v2/company/ajax/cF1001.aspx?cmp_cd=005930&fin_typ=0&freq_typ=Y&encparam=dEpwVmJWUFYrK2szNmtiWmo3UXMzQT09&id=ZlEwemUxRm'
+#symbol에 따라 회사를 다르게 설정
+symbol <- '222810' 
+  #ex) 000660 sk 하이닉스 symbol
 
-# html에서 데이터 가져오기
-html <- read_html(url)
+url <- paste0('https://fchart.stock.naver.com/sise.nhn?symbol=',symbol,'&timeframe=day&count=500&requestType=0')
 
-table <- html %>% html_nodes("table")
 
-table <- table[2]
+data <- GET(url) %>% 
+  read_html %>% 
+  html_nodes('item') %>% 
+  html_attr('data') %>% 
+  strsplit("\\|")
 
-td <- table %>% html_nodes('td')
+data = lapply(data, function(x) {
+  x[c(1:6)] %>% t() %>% data.frame()
+})
+data = do.call(rbind, data)
 
-text <- td %>% html_text()
+str(data)
 
-# 열 이름 만들기
-a1 <- html %>% html_nodes('tr')
+for(i in 2:6){
+  data[,i] = as.numeric(as.character(data[,i]))
+}
 
-a2 <- a1 %>% html_text()
+# 날짜별 행 이름 변경
+rownames(data) = ymd(data[,1]) %>% as.character
+data[,1] = NULL
 
-a <- a2[38]
+# 열 이름 변경
+cname <- c('시가','고가','저가','종가','거래량')
+colnames(data) <-  cname
 
-year <- gsub("(\r)(\n)(\t)*", "", a)
-
-lyear <- year %>% strsplit('\\(IFRS연결)')
-
-lyear <- unlist(lyear)
-
-df <- as.data.frame(matrix(text,ncol=8, byrow=TRUE))
-
-colnames(df) <- c(lyear)
-
-# 행 이름 만들기
-th1 <- html %>% html_nodes('tr')
-
-title <-  html %>% html_nodes(' .title')
-
-title <- title %>% html_text()
-
-# 최종 데이터 프레임
-data <- cbind(title,df)
-
+# 최종 데이터 프레임 
 data
