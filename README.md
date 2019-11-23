@@ -13,6 +13,10 @@ library(rvest)
 symbol <- '222810' 
 ex) 000660 sk 하이닉스 symbol     
 
+# 여기서 사용하는 최종 URL
+https://fchart.stock.naver.com/sise.nhn?symbol=222810&timeframe=day&count=500&requestType=0
+
+
 # 한류AI센터 주가 불러오기
 url <- paste0('https://fchart.stock.naver.com/sise.nhn?symbol=',symbol,'&timeframe=day&count=500&requestType=0')
 
