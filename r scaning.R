@@ -45,7 +45,7 @@ comname <- list()  # 회사이름을 리스트로 저장
 for (i in 1:length(sym)){
 #for(i in 1:5){  #데이터가 너무 많으므로 예제 데이터
   symbol <- sym[i]
-  #symbol <- sym[2]
+
   url <- paste0('https://fchart.stock.naver.com/sise.nhn?symbol=',symbol,'&timeframe=day&count=500&requestType=0')
   
   
