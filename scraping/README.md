@@ -23,6 +23,7 @@ https://op.gg
 ### 데이터 프레임
 ![캡처](https://user-images.githubusercontent.com/57973123/69915578-fd430f80-1493-11ea-958e-3666b68f03a0.PNG)
 
+[코드참고](https://github.com/ljhljh6552/Data-visualization/blob/master/scraping/scraping.R)
 2019.12.01기준 탑20 데이터에서 서폿 캐릭터의 비중이 압도적으로 높다 따라서 전체리그에서 봤을때 서포터 라인이 게임을 승리로 이끄는데 중요하다고 할 수 있다.
 
 또한 승률 순위로 보았을 때 로밍 챔피언이나 암살자 챔피언들이 주를 이루는 것으로 보아 초반에 강한 챔피언을 픽함으로써 게임 주도권을 확실하게 잡는게 승률상승에 도움이 된다고 할 수 있다.
