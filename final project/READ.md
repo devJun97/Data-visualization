@@ -25,6 +25,23 @@
 ***데이터가 텍스트 타입, 따라서 텍스트 마이닝을 실시한다***
 
 ## [분석방법](https://github.com/ljhljh6552/Data-visualization/blob/master/final%20project/code/top20.R)과 결과
-1. 막대그래프로 빈도분석
+
+[**그래프코드**](https://github.com/ljhljh6552/Data-visualization/blob/master/final%20project/code/graph.R)
+
+### - 막대그래프로 빈도분석
+
+![Rplot](https://user-images.githubusercontent.com/57973123/70855385-66ec0080-1f0d-11ea-8b6e-82e60b585ef6.png)
 
 
+### - WordCloud 그림
+
+![1](https://user-images.githubusercontent.com/57973123/70855399-8d11a080-1f0d-11ea-813b-036ea319873c.png)
+
+### - 빈도수 상관관계 그림
+
+![Rplot1](https://user-images.githubusercontent.com/57973123/70855404-a74b7e80-1f0d-11ea-992e-f4bd30d6ca03.png)
+
+## 결론
+
+데이터를 수집한 기간동안 가장 핫한 topic은 '상주 영천 고속도로' 검색어로 당일 사고로 인하여 검색률이 급증했다는 것을 알 수 있다.
+또한 로드 fc경기가 있었고, 넥플릭스에서 방영하는 6언더그라운드라는 드라마가 주목을 받았다고 할 수 있다.
